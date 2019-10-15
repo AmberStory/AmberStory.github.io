@@ -1,0 +1,53 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.wrap{
+	height: 800px;
+	width: 800px;
+	margin: 30px auto;
+	text-align: center;
+}
+header h3{
+	font-size: 36px;
+}
+header p{
+	font-size: 20px;
+}
+header input{
+	margin: 10px auto;
+}
+
+.container{
+	width: 500px;
+	height: 500px;
+	margin: 20px auto;
+	border: 5px solid #7D9EC0;
+	background: #B4CDCD;
+	position: relative;
+}
+.grid-cell{
+	height: 100px;
+	width: 100px;
+	border-radius: 8px;
+	background: #668B8B;
+	margin-left: 20px;
+	margin-top: 20px;
+	float: left;
+}
+.end{
+	height: 200px;
+	width:400px;
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	background: #FF8C00;
+	color: #fff;
+	font-size: 68px;
+	line-height: 100px;
+	display: none;
+	z-index: 2;
+}
+span{
+	margin: 10px auto;
+}

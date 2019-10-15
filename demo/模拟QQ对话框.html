@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>聊天对话框——键盘事件的应用</title>
+		<style>
+		*{
+			padding: 0;
+			 margin:0;
+		}
+			li{
+				list-style: none;
+			}
+			#div1{
+				width: 400px;
+				height: 300px;
+				border: 1px solid red;
+			}
+			#txt1{
+				margin-top: 10px;
+				width: 400px;
+				height: 100px;
+				resize: none;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+			<textarea id="txt1"></textarea>
+		<input type="button" id="but" value="发送" >
+	</body>
+	<script>
+		window.onload = function () {
+			var Odiv1 = document.getElementById('div1');
+			var Otxt = document.getElementById('txt1');
+			var Obut = document.getElementById('but');
+			Otxt.value = '';
+			Otxt.focus();
+
+			Obut.onclick = function() {
+				if (Otxt.value == '') {
+					alert('输入内容不能为空，请重新输入！')
+				}
+				else{
+					message();
+				}
+				Otxt.focus();
+			}
+
+			document.onkeydown = function(ev){
+				var ev = ev || window.evert;
+				// if (ev.keyCode == 13 ) {
+				if (ev.keyCode == 13 && ev.ctrlKey) {
+					if (Otxt.value == '') {
+						alert('输入内容不能为空，请重新输入！');
+						return false;	//清除回车键
+					}
+					else{
+						message();
+						return false;	//清除回车键
+					}
+					alert(Otxt.value.length);
+			}
+			Otxt.focus();
+		}
+
+		function message(){
+			var Oli = document.createElement("li");
+			Odiv1.appendChild(Oli);
+			var newString = Otxt.value.replace(/ /g,"&nbsp;").replace(/\n/g,"<br/>");
+			Oli.innerHTML = newString;
+			Otxt.value = '';
+		}
+
+	}
+	</script>
+</html>

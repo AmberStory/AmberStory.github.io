@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3自动悬浮模糊效果</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.wrap{
+			margin: 0 auto;
+			margin-top: 30px;
+			width: 612px;
+			text-align: center;
+			position: relative;
+		}
+		#img{
+			animation: img 8s linear infinite alternate;
+		}
+		@keyframes img{	
+			0%,25%{
+			-webkit-filter: blur(0px);
+				 -o-filter: blur(0px);
+					filter: blur(0px);
+			}
+			30%,70%{	
+			-webkit-filter: blur(5px);
+				 -o-filter: blur(5px);
+					filter: blur(5px);
+			}			
+			75%{	
+			-webkit-filter: blur(0px);
+				 -o-filter: blur(0px);
+					filter: blur(0px);
+			}
+		}
+		#content{
+			margin: 0 auto;
+			width: 500px;
+			height: 100px;
+			position: absolute;
+			top: 50px;
+			left: 60px;
+			border:solid blue;
+			border-left-color: transparent;
+			border-right-color: transparent;
+			border-width: 4px 0px;
+			animation: sliph 4s linear infinite alternate;
+			box-sizing: border-box;
+		}
+		#after{
+			margin: 0 auto;
+			width: 500px;
+			height: 100px;
+			position: absolute;
+			top: 50px;
+			left: 60px;
+			border:solid blue;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			border-width: 0px 2px;
+			animation: slipv 4s linear infinite alternate;
+			box-sizing: border-box;
+		}
+		@keyframes sliph{
+			0%,50% {
+				clip: rect(0px, 250px, 100px, 250px);
+			}
+			75% {clip: rect(0px, 500px, 100px, 0px);}
+		}
+		@keyframes slipv{
+			0%,50% {
+				clip: rect(50px, 500px, 50px, 0px);
+			}
+			75% {clip: rect(0px, 500px, 100px, 0px);}
+		}
+		#content h3{
+			font-size: 3rem;
+			background: linear-gradient(to right, #63B8FF, #B3EE3A 25%, #63B8FF 50%, #B3EE3A 75%, #63B8FF 100%);
+			/*规定字体颜色为透明*/
+			-webkit-text-fill-color: transparent;
+			/*规定绘制背景的区域*/
+			-webkit-background-clip: text;
+			background-size: 200% 100%;
+			animation: stream 2s 1s linear infinite;
+		}
+		@keyframes stream {
+			0%{
+				background-position: 0 0;
+			}
+			100%{
+				background-position: -100% 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<img src="img/imooc.jpg" id="img">
+		<div id="box">
+			<div id="content">
+				<h3>欢迎加入慕课网团队</h3>
+			</div>
+			<div id="after">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

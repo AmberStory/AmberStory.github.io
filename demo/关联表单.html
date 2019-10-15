@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动输入框</title>
+	<style>
+		.wrap{
+			width: 800px;
+			height: 600px;
+			margin: 0 auto;
+			padding-top: 50px;
+			box-sizing: border-box;
+			background: #f7f7f7;
+			text-align: center;
+		}
+		#stu{
+			display: none;
+		}
+		#adult{
+			display: none;
+		}
+		#select{
+			margin-bottom: 30px;
+		}
+		#commit{
+			margin-top: 30px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<form onsubmit="return sub();">
+	<div id="select">
+		<label>在校学生<input name="class" type="radio"></label>
+		<label>非在校学生<input name="class" type="radio"></label>
+	</div>
+	<div id="stu">
+		<select id="city">
+			<option value="">北京</option>
+			<option value="">武汉</option>
+			<option value="">上海</option>
+		</select>
+		<select id="school">
+			<option value="">北京大学</option>
+			<option value="">清华大学</option>
+			<option value="">北京科技大学</option>
+		</select>
+	</div>
+	<div id="adult">
+		<label> 就业单位 </label>
+		<input type="text" size="30">
+	</div>
+	<input type="submit" id="commit" value="提交">
+</div>
+</form>
+</body>
+<script>
+	var Oselect = document.getElementById('select');
+	var Ostu = document.getElementById('stu');
+	var Oadult = document.getElementById('adult');
+	var Ocity = document.getElementById('city');
+	var Oschool = document.getElementById('school');
+	var Oradio = document.getElementsByName('class');
+	var Ocommit = document.getElementById('commit')
+
+	Oradio[0].onchange = stu;
+	Oradio[1].onchange = adult;
+	Ocity.onchange = school;
+
+	//单选按钮
+	function stu() {
+		if (Oradio[0].checked) {
+			Ostu.style.display = 'block';
+			Ocommit.style.display = 'inline';
+			Oadult.style.display = 'none';
+		}
+	}
+	function adult() {
+		if (Oradio[1].checked) {
+			Ostu.style.display = 'none';
+			Oadult.style.display = 'block';
+		}
+	}
+
+	//设置联动下拉框
+	function school(){
+		Oschool.options.length = 0;
+		if(Ocity.selectedIndex == 0) {
+			Oschool.options.add(new Option("北京大学"));
+			Oschool.options.add(new Option("清华大学"));
+			Oschool.options.add(new Option("北京科技大学"));
+		}
+		if(Ocity.selectedIndex == 1) {
+			Oschool.options.add(new Option("武汉大学"));
+			Oschool.options.add(new Option("华中科技大学"));
+			Oschool.options.add(new Option("武汉科技大学"));
+		}
+		if(Ocity.selectedIndex == 2) {
+			Oschool.options.add(new Option("上海大学"));
+			Oschool.options.add(new Option("复旦大学"));
+			Oschool.options.add(new Option("上海科技大学"));
+		}
+	}
+
+	//提交验证
+	function sub(){
+		alert("提交成功");
+		return true;
+	}
+
+</script>
+</html>

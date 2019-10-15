@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head lang="en">
+		<title>正则表达式-邮箱格式</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<span>请输入符合要求的邮箱格式：</span>
+		<input type="text" id="txt">
+		<input type="button" id="but" value="确定">
+	</body>
+	<script>
+		var Otxt = document.getElementById('txt');
+		var Obut = document.getElementById('but');
+		//hzr378411799@qq.com
+		var re = /^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
+		Otxt.focus();
+		Obut.onclick = function () {
+			if (Otxt.value == '') {
+				alert('请输入');
+				Otxt.focus();
+			}
+			else{
+				if(re.test(Otxt.value)){
+					alert('输入正确');
+				}
+				else{
+					alert('输入错误，请重新输入');
+					Otxt.focus();
+				}
+			}
+		}
+	</script>
+</html>

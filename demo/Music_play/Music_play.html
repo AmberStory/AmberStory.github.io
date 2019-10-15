@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<title>html5练习</title>
+		<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+			#div1{
+				top: 100px;
+				height: 100px;
+				width: 100px;
+				background-color: red;
+				animation:mymove 4s infinite 1s linear paused alternate;
+				-webkit-animation:mymove 4s infinite 1s linear paused alternate;
+				position: absolute;
+				border-radius: 50%;
+			}
+			#div1 > img{
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+			@keyframes mymove{
+				0% {left: 0px; transform: rotate(0deg) scale(1,1); -webkit-transform:rotate(0deg) scale(1,1);}
+				100% {left:200px; transform: rotate(360deg) scale(2,2); -webkit-transform:rotate(360deg) scale(2,2);}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<img src="Join.jpg">
+		</div>
+		<div style="width: 700px;height: 50px; background-color: red;float: left;">
+			<audio src="蔡依林 - 即时生效.mp3" controls="controls" id="aud1" style="width: 100%; margin-top: 10px;"></audio>
+		</div>
+		<input type="button" value="播放" id="but" style="width: 60px; height: 30px; margin:10px 10px;">
+	</body>
+	<script type = 'text/javascript'>
+		var Obut = document.getElementById('but');
+		var Odiv1 = document.getElementById('div1');
+		var Oaud1 = document.getElementById('aud1');
+
+		Oaud1.addEventListener('ended',function(event){
+			Odiv1.style.animationPlayState = 'paused';
+			Odiv1.style.webkitAnimationPlayState = 'paused';
+		},false);
+		Obut.onclick = function(){
+			if(Obut.value == '播放'){	
+				Obut.value = '暂停';
+				Odiv1.style.animationPlayState = 'running';	
+				Odiv1.style.webkitAnimationPlayState = 'running';
+				Oaud1.play();
+			} else{
+				Obut.value = '播放';
+				Oaud1.pause();
+				Odiv1.style.animationPlayState = 'paused';
+				Odiv1.style.webkitAnimationPlayState = 'paused';
+			}
+	}
+	</script>
+</html>

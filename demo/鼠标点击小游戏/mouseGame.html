@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>消除表情小游戏</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#header{
+				width: 800px;
+				height: 100px;
+				margin: 30px auto;
+				border: 2px solid pink;
+				text-align: center;
+			}
+			#mid{
+				position: relative;
+				width: 850px;
+				height: 600px;
+				border: 10px solid pink;
+				margin: 20px auto;
+			}
+			.title{
+				font-size: 1.5cm;
+				color: green;
+			}
+			#mid img{
+				width: 30px;
+				height: 30px;
+				/*margin-left: 10px;
+				margin-top: 10px;*/
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<p class="title">测测你的鼠标有多快</p>
+			<input type="button" value="开始游戏">
+		</div>
+		<div id="mid">
+		</div>
+		<script language="javascript" type="text/javascript" src="mouseGame.js"></script>
+	</body>
+</html>

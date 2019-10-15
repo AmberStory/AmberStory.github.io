@@ -1,0 +1,45 @@
+<!doctype>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>点击右键鼠标跟随</title>
+		<style>
+			body{
+				height: 2000px;
+			}
+			div{
+				/*padding: 220px 20px;*/
+			}
+			#div1{
+				background-color: pink;
+				height: 260px;
+				width: 150px;
+				display: none;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<span>请点击鼠标右键</span>
+		<div id="div1">
+		</div>
+	</body>
+	<script>
+		window.onload = function () {
+			var Odiv1 = document.getElementById('div1');
+			document.oncontextmenu = function fn(ev){
+				var ev = ev || window.event;
+				Odiv1.style.display = 'block';
+
+				Odiv1.style.left = ev.clientX + 'px';				
+				Odiv1.style.top = ev.clientY + document.body.scrollTop + 'px';
+
+				return false;
+			}
+
+			document.onclick = function(){
+				Odiv1.style.display = 'none';
+			}
+		}
+	</script>
+</html>

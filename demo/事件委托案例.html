@@ -1,0 +1,44 @@
+<!doctype>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>test 事件委托</title>
+	</head>
+	<body>
+		<span>请单击列表</span>
+		<div>
+			<ul id="ul1">
+				<li id="red">1111</li>
+				<li id="green">2222</li>
+				<li id="blue">3333</li>
+				<li id="pink">4444</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		window.onload = function () {
+			var Oul = document.getElementById('ul1');
+			
+			Oul.onclick = function(ev){
+				var ev = ev||window.event;
+				var target = ev.target||ev.srcElement;
+				if(target.nodeName.toLowerCase() == 'li'){//将获取到的节点名转换为小写
+					switch(target.id){
+						case 'red':
+						target.style.background = 'red';
+						break;
+						case 'green':
+						target.style.background = 'green';
+						break;
+						case 'blue':
+						target.style.background = 'blue';
+						break;
+						case 'pink':
+						target.style.background = 'pink';
+						break;
+					}
+				}
+			}
+		}
+	</script>
+</html>

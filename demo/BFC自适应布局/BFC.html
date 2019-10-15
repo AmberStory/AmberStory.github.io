@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>点击右键鼠标跟随</title>
+		<style>
+			body{
+				height: 1000px;
+			}
+			
+			#span1{
+				font-size: 1cm;
+				line-height: 50px;
+			}
+			#boxdiv{
+				width: 400px;
+				border: 1px solid red;
+			}
+			#boxdiv > img{
+				width: 200px;
+				height: 300px; 
+				float: left;  
+				margin-right: 20px;
+			}
+			.innerdiv{
+				overflow: hidden; 
+				background-color: pink; 
+			}
+		</style>
+	</head>
+
+	<body >
+	<div class="content">
+		<span id="span1"><bold>BFC实现多栏自适应布局</bold></span>
+		<div id="boxdiv" class="box">
+			<img src="Join.jpg" class="clearbox" >
+			<div class= "innerdiv"><p>先找到浮动盒子的父元素，再在父元素中添加一个属性：overflow:hidden,就是清除这个父元素中的子元素浮动对页面的影响.注意：一般情况下也不会使用这种方式，因为overflow:hidden有一个特点，离开了这个元素所在的区域以后会被隐藏（overflow:hidden会将超出的部分隐藏起来）.　　在浮动的盒子之下再放一个标签，在这个标签中使用clear:both，来清除浮动对页面的影响.
+
+　　　　　　a.内部标签：会将这个浮动盒子的父盒子高度重新撑开.
+
+　　　　　　b.外部标签：会将这个浮动盒子的影响清除，但是不会撑开父盒子.
+
+　　　　注意：一般情况下不会使用这一种方式来清除浮动。因为这种清除浮动的方式会增加页面的标签，造成结构的混乱.</p></div>
+			
+		</div>
+	</div>
+	</body>
+</html>
