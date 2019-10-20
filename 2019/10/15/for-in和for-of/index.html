@@ -9,14 +9,14 @@
   <title>for in和for of | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="for…infor…in是es5标准，以任意顺序遍历一个对象的除Symbol以外的可枚举属性（循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）)。如果只要考虑对象本身的属性，而不是它的原型，那么使用 getOwnPropertyNames() 或执行 hasOwnProperty() 来确定某属性是否是对象本身的属性（也能使用prop">
-<meta name="keywords" content="JavaScript es5 es6">
+<meta name="keywords" content="JavaScript,es5,es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="for in和for of">
 <meta property="og:url" content="http://yoursite.com/2019/10/15/for-in和for-of/index.html">
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="for…infor…in是es5标准，以任意顺序遍历一个对象的除Symbol以外的可枚举属性（循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）)。如果只要考虑对象本身的属性，而不是它的原型，那么使用 getOwnPropertyNames() 或执行 hasOwnProperty() 来确定某属性是否是对象本身的属性（也能使用prop">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-15T15:28:20.000Z">
+<meta property="og:updated_time" content="2019-10-20T11:57:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="for in和for of">
 <meta name="twitter:description" content="for…infor…in是es5标准，以任意顺序遍历一个对象的除Symbol以外的可枚举属性（循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）)。如果只要考虑对象本身的属性，而不是它的原型，那么使用 getOwnPropertyNames() 或执行 hasOwnProperty() 来确定某属性是否是对象本身的属性（也能使用prop">
@@ -176,7 +176,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>for…in是es5标准，以任意顺序遍历一个对象的除Symbol以外的可枚举属性（循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）)。如果只要考虑对象本身的属性，而不是它的原型，那么使用 getOwnPropertyNames() 或执行 hasOwnProperty() 来确定某属性是否是对象本身的属性（也能使用propertyIsEnumerable）。<br><a id="more"></a></p>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ColorCar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.color = <span class="string">'red'</span>;</span><br><span class="line">&#125;</span><br><span class="line">ColorCar.prototype = car;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> ColorCar();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="keyword">if</span>(obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'own prop:'</span>, prop); <span class="comment">// own prop: color</span></span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'extend prop:'</span>, prop); <span class="comment">// extend prop:a extend prop:b extend prop:c</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ColorCar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.color = <span class="string">'red'</span>;</span><br><span class="line">&#125;</span><br><span class="line">ColorCar.prototype = car;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> ColorCar();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="keyword">if</span>(obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'own prop:'</span>, prop); <span class="comment">// own prop: color</span></span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'extend prop:'</span>, prop); <span class="comment">// extend prop:a   extend prop:b  extend prop:c</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>提示：for…in不应该用于迭代一个 Array，因为迭代的顺序是依赖于执行环境的，所以数组遍历不一定按次序访问元素。</p>
 <h3 id="for…of"><a href="#for…of" class="headerlink" title="for…of"></a>for…of</h3><p>for…of 是es6标准，遍历可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）要迭代的数据。</p>
 <h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>];</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'item:'</span>, item); <span class="comment">// item: 3 item:5 item:7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -213,7 +213,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JavaScript es5 es6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
         		</li>
       		
 		</ul>
@@ -282,6 +290,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/19/深拷贝和浅拷贝/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          深拷贝和浅拷贝
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/15/locationStorage和sessionStorage/" id="article-nav-older" class="article-nav-link-wrap">
@@ -441,14 +458,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ES6 JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript es5 es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -461,7 +470,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">ES6 JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,7 +478,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ES6 promise</a>
+                <a href="javascript:void(0)" class="js-tag color3">storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,11 +510,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +518,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript storage</a>
+                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
               </li>
             
             <div class="clearfix"></div>

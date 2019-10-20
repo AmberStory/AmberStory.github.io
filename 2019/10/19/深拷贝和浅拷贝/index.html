@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | AmberStory</title>
+  <title>深拷贝和浅拷贝 | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="just do it!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AmberStory">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+  <meta name="description" content="JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。 引用类型复制12">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深拷贝和浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/深拷贝和浅拷贝/index.html">
 <meta property="og:site_name" content="AmberStory">
-<meta property="og:description" content="just do it!">
+<meta property="og:description" content="JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。 引用类型复制12">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/深拷贝和浅拷贝/对象复制.png">
+<meta property="og:updated_time" content="2019-10-20T11:54:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AmberStory">
-<meta name="twitter:description" content="just do it!">
+<meta name="twitter:title" content="深拷贝和浅拷贝">
+<meta name="twitter:description" content="JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。 引用类型复制12">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/19/深拷贝和浅拷贝/对象复制.png">
   
     <link rel="alternative" href="/atom.xml" title="AmberStory" type="application/atom+xml">
   
@@ -153,264 +157,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-深拷贝和浅拷贝" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深拷贝和浅拷贝
+    </h1>
+  
+
+        
+        <a href="/2019/10/19/深拷贝和浅拷贝/" class="archive-article-date">
+  	<time datetime="2019-10-19T03:42:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。<br>JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。<br>JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。</p>
+<h4 id="引用类型复制"><a href="#引用类型复制" class="headerlink" title="引用类型复制"></a>引用类型复制</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line">obj2 = obj1;</span><br><span class="line">obj2.a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.a);  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.a);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>由以上示例可以看出，当改变obj2中a的值的时候，obj1中a的值也发生了同样的变化。因为引用类型变量的值实际上是一个指针，指向存储在堆内存中的对象。当把obj1的值赋给obj2时，只是复制出一个指向同一堆内存的指针，所以当通过obj2操作堆内存中的对象时，obj1取到的值也同样发生了改变。<br><img src="/2019/10/19/深拷贝和浅拷贝/对象复制.png"></p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值；如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+</blockquote>
+<h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p>ES6提供的浅拷贝方法，语法：Object.assign(target, …soruces);<br>接收的第一个参数是拷贝的目标，剩下的是拷贝的源对象（可以是多个）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">msg</span>: &#123; <span class="attr">name</span>: <span class="string">'Amber'</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;&#125;;</span><br><span class="line">obj2 = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2, obj1);</span><br><span class="line">obj1.a = <span class="number">2</span>;</span><br><span class="line">obj1.msg.age = <span class="number">22</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);  <span class="comment">// &#123; a: 2, msg: &#123;  name: 'Amber', age: 22 &#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2);  <span class="comment">// &#123; a: 1, msg: &#123;  name: 'Amber', age: 22 &#125;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>对于值依然是对象的元素，属于浅拷贝，改变一个对象的值，目标对象的值也会变化。</p>
+<h4 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h4><p>利用扩展运算符可以在构造字面量对象时,进行克隆或者属性拷贝，语法：cloneObj = { …obj };<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">obj = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:&#123;<span class="attr">c</span>:<span class="number">1</span>&#125;&#125;</span><br><span class="line">obj2 = &#123;...obj&#125;;</span><br><span class="line">obj.a=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:2,b:&#123;c:1&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;a:1,b:&#123;c:1&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">obj.b.c = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">//&#123;a:2,b:&#123;c:2&#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">//&#123;a:1,b:&#123;c:2&#125;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>扩展运算符和Object.assign一样，如果一个属性的值仍然是对象的话，属于浅拷贝。</p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote>
+<p>将一个对象从内存中完整的拷贝一份出来，从堆内存中开辟一个新的区域存放新对象，且修改新对象不会影响原对象。</p>
+</blockquote>
+<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h4><p>JSON.stringify()是目前前端开发过程中最常用的深拷贝方式，原理是把一个对象序列化成为一个JSON字符串，将对象的内容转换成字符串的形式再保存在磁盘上，再用JSON.parse()反序列化将JSON字符串变成一个新的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">msg</span>: &#123; <span class="attr">name</span>: <span class="string">'Amber'</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;&#125;;</span><br><span class="line">obj2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj1));</span><br><span class="line">obj1.a = <span class="number">2</span>;</span><br><span class="line">obj1.msg.age = <span class="number">22</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);  <span class="comment">// &#123; a: 2, msg: &#123;  name: 'Amber', age: 22 &#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2);  <span class="comment">// &#123; a: 1, msg: &#123;  name: 'Amber', age: 20 &#125;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>注意：深拷贝日期类型，会变成string类型；深拷贝RegExp引用类型，会变成空对象。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/30/Linux命令/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/30/Linux命令/">Linux命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/30/正则的魅力/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:53:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/30/正则的魅力/">正则的魅力</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">RegExp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/30/ES6语法/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/30/ES6语法/">ES6语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ES6 JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/30/图解HTTP/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/30/图解HTTP/">图解HTTP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/29/hexo搭建GitHub博客/" class="archive-article-date">
-  	<time datetime="2019-07-29T01:00:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/29/hexo搭建GitHub博客/">搭建GitHub博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/29/本地搭建http服务/" class="archive-article-date">
-  	<time datetime="2019-07-29T00:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/29/本地搭建http服务/">本地搭建http服务遇到的问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">node server http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/你不知道的JavaScript/" class="archive-article-date">
-  	<time datetime="2019-07-04T15:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/你不知道的JavaScript/">你不知道的JavaScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -422,57 +235,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/19/深拷贝和浅拷贝/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/高性能JavaScript/" class="archive-article-date">
-  	<time datetime="2019-07-04T15:09:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/v-model语法糖/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          v-model语法糖
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/15/for-in和for-of/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">for in和for of</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/高性能JavaScript/">高性能JavaScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JavaScript Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#引用类型复制"><span class="toc-number">1.</span> <span class="toc-text">引用类型复制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-number"></span> <span class="toc-text">浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-assign"><span class="toc-number">1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扩展运算符"><span class="toc-number">2.</span> <span class="toc-text">扩展运算符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝"><span class="toc-number"></span> <span class="toc-text">深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON-stringify"><span class="toc-number">1.</span> <span class="toc-text">JSON.stringify()</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -495,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

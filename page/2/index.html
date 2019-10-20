@@ -155,6 +155,160 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SVG实现倒计时" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/04/SVG实现倒计时/">SVG实现倒计时动效</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/04/SVG实现倒计时/" class="archive-article-date">
+  	<time datetime="2019-08-04T15:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>利用strke-dasharray创建虚线，结合stroke-dashoffset控制虚线开始的位置，实现倒计时条滑动的效果。<br>strke-dasharray接收两个参数，第一个表示虚线的长度，第二个表示虚线之间的间隔，当两个值相等的时候，只需要给一个参数。<br>stroke-dashoffset指定线段的起始位置偏移量。整数从起始位置向前偏移，负数向后偏移。</p>
+<p>利用requestAnimationFrame计算剩余时间：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame(<span class="keyword">this</span>.timeFlow);</span><br><span class="line">timeFlow(time) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!time) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">this</span>.record) <span class="keyword">this</span>.record = time;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> flowTime = time - <span class="keyword">this</span>.record;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.record = time;</span><br><span class="line">  <span class="keyword">const</span> remain = <span class="keyword">this</span>.remainTime - <span class="built_in">Math</span>.floor(flowTime);</span><br><span class="line">  <span class="keyword">if</span> (remain &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.remainTime = remain;</span><br><span class="line">    <span class="keyword">this</span>.raf = <span class="built_in">window</span>.requestAnimationFrame(<span class="keyword">this</span>.timeFlow);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.remainTime = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVG</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/04/SVG实现倒计时/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/30/Linux命令/">Linux命令</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/30/Linux命令/" class="archive-article-date">
+  	<time datetime="2019-07-30T10:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p><code>-v</code>参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。<br><code>$ curl -v http://example</code></p>
+<h3 id="b"><a href="#b" class="headerlink" title="-b"></a>-b</h3><p><code>-b</code>参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。<br><code>$ curl -b &quot;token=PS-1YW8oJ65LIc&quot; http://example.com</code></p>
+        
+          <a class="article-more-a" href="/2019/07/30/Linux命令/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/30/Linux命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-正则的魅力" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -837,14 +991,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ES6 JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript es5 es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -857,7 +1003,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">ES6 JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,7 +1011,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ES6 promise</a>
+                <a href="javascript:void(0)" class="js-tag color3">storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,11 +1043,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,7 +1051,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaScript storage</a>
+                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
               </li>
             
             <div class="clearfix"></div>
