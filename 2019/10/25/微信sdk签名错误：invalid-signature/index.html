@@ -9,7 +9,7 @@
   <title>微信sdk签名错误：invalid signature | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，">
-<meta name="keywords" content="js-sdk">
+<meta name="keywords" content="js-sdk,vue-router">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信sdk签名错误：invalid signature">
 <meta property="og:url" content="http://yoursite.com/2019/10/25/微信sdk签名错误：invalid-signature/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/10/25/微信sdk签名错误：invalid-signature/signature.png">
-<meta property="og:updated_time" content="2019-10-25T12:38:32.000Z">
+<meta property="og:updated_time" content="2019-10-29T01:56:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信sdk签名错误：invalid signature">
 <meta name="twitter:description" content="最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，">
@@ -178,10 +178,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，才找到问题真相：传入的url并不是进入页面时拿到的url，即使是通过location.href获取的。</p>
+<p>最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，才找到问题真相：传入的url并不是进入页面时拿到的url，即使是通过location.href动态获取的。</p>
 </blockquote>
 <h4 id="location-href取到的不是页面真实url"><a href="#location-href取到的不是页面真实url" class="headerlink" title="location.href取到的不是页面真实url"></a>location.href取到的不是页面真实url</h4><a id="more"></a>
-<p>在小程序中，如果传递的url地址中包含参数，但是这些参数又没有经过encodeURIComponent编码，那么通过location.href获取的url实际上是被浏览器自动encode之后的，拿着encode后的url获取js-sdk配置信息的时候，在ios下没有问题，安卓下就会出现invalid signature的错误提示。<br><img src="/2019/10/25/微信sdk签名错误：invalid-signature/signature.png"><br>如果你的微信签名一直提示“invalid signature”错误，其他配置又完全正常的情况下，请仔细检查url，80%是url的问题。<br>（我直接在浏览器端测试了一下，拿到的url参数是没有encode过的）。</p>
+<p><strong>大坑：</strong>通过vue-router进行页面管理的项目，如果页面url中包含参数，但是这些参数又没有经过encodeURIComponent编码，比如<code>https://www.test.com?q=a:1</code>，那么页面打开后通过location.href取得的url，实际上是<code>https://www.test.com?q=a%3A1</code>，这是vue-router的默认行为（可参考下方vue-router源码），自动为url上的参数encode。此时拿着encode后的url获取js-sdk配置信息的时候，在ios下没有问题，安卓下就会出现invalid signature的错误提示。<br><img src="/2019/10/25/微信sdk签名错误：invalid-signature/signature.png"></p>
+<p><strong>vue-router源码</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">stringifyQuery</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> res = obj ? <span class="built_in">Object</span>.keys(obj).map(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> val = obj[key];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (val === <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (val === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">encodeURIComponent</span>(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(val)) &#123;</span><br><span class="line">      <span class="keyword">let</span> result = [];</span><br><span class="line">      val.forEach(<span class="function">(<span class="params">val2</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (val2 === <span class="literal">undefined</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (val2 === <span class="literal">null</span>) &#123;</span><br><span class="line">          result.push(<span class="built_in">encodeURIComponent</span>(key));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          result.push(<span class="string">`<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(key)&#125;</span>=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(val2)&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> result.join(<span class="string">'&amp;'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(key)&#125;</span>=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(val)&#125;</span>`</span>;</span><br><span class="line">  &#125;).filter(<span class="function">(<span class="params">x</span>) =&gt;</span> x.length &gt; <span class="number">0</span>).join(<span class="string">'&amp;'</span>) : <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> res ? (<span class="string">`?<span class="subst">$&#123;res&#125;</span>`</span>) : <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>解决方案</strong><br>可以修改上述源码，在创建VueRouter对象的时候传入修改后的方法，覆盖vue-router默认行为，比如new VueRouter({ stringifyQuery })， <a href="https://router.vuejs.org/zh/api/#parsequery-stringifyquery" target="_blank" rel="noopener">相关api文档</a>。<br>如果你的微信签名一直提示“invalid signature”错误，其他配置又完全正常的情况下，请仔细检查url，基本都是url的问题。</p>
 <ul>
 <li>附上一个整理的超级详细的文档：<a href="https://www.fengerzh.com/jssdk-invalid-signature/" target="_blank" rel="noopener">https://www.fengerzh.com/jssdk-invalid-signature/</a></li>
 <li>微信开发文档：<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html</a></li>
@@ -221,6 +223,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">js-sdk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue-router</a>
         		</li>
       		
 		</ul>
@@ -534,6 +540,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
             
             <div class="clearfix"></div>

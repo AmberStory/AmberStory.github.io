@@ -175,7 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>遇到的问题：</em>启动项目时总是报错：某个路径下文件没有访问权限，permission denied。<br><img src="/2019/10/28/启动服务时抛错：permission-denied/permissionDenied.png"><br><em>解决方案：</em><br>1、在启动服务的命令前加上sudo命令，比如：sudo npm start；<br>2、将没有权限的这个目录权限改为777，即chmod 777；</p>
+        <p><strong>遇到的问题：</strong>启动项目时总是报错：某个路径下文件没有访问权限，permission denied。<br><img src="/2019/10/28/启动服务时抛错：permission-denied/permissionDenied.png"><br><strong>解决方案：</strong><br>1、在启动服务的命令前加上sudo命令，比如：sudo npm start；<br>2、将没有权限的这个目录权限改为777，即chmod 777；</p>
 
       
 
@@ -333,7 +333,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，才找到问题真相：传入的url并不是进入页面时拿到的url，即使是通过location.href获取的。</p>
+<p>最近一段时间遇到个十分头疼的问题，微信小程序环境下进行微信签名的时候一直报错：invalid signature。在严格按照官方文档提供的签名的方法进行后，还是给出这个提示。另外获取js-sdk配置信息时，传入的url必须和当前页面的url保持一致，但不能保留url上携带的hash值。检查这条规则，也是符合的，url是通过location.href获取的，没有问题。后来又经过反复排查，反复试验，才找到问题真相：传入的url并不是进入页面时拿到的url，即使是通过location.href动态获取的。</p>
 </blockquote>
 <h4 id="location-href取到的不是页面真实url"><a href="#location-href取到的不是页面真实url" class="headerlink" title="location.href取到的不是页面真实url"></a>location.href取到的不是页面真实url</h4>
         
@@ -352,6 +352,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">js-sdk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue-router</a>
         		</li>
       		
 		</ul>
@@ -1100,6 +1104,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
             
             <div class="clearfix"></div>
