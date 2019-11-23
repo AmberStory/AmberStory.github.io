@@ -155,6 +155,262 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-npm-script脚本命令学习总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/23/npm-script脚本命令学习总结/">npm script脚本命令学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/23/npm-script脚本命令学习总结/" class="archive-article-date">
+  	<time datetime="2019-11-23T04:56:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>运用好npm脚本命令可以帮助快速按需启动程序。</p>
+</blockquote>
+<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>npm run命令可以执行package.json文件里scripts字段里定义的脚本命令。当执行npm run的时候，会自动创建一个Shell，这个Shell会将当前目录的<code>node_modules/.bin</code>子目录绝对路径加入PATH环境变量中，执行结束后，再将PATH变量恢复原样。<code>node_modules/.bin</code>目录下的脚本全部为可执行文件，所以在定义脚本命令的时候，可以直接调用该目录下的脚本名，不必加上路径。比如当前项目依赖cross-env，可以直接执行该命令：<br></p>
+        
+          <a class="article-more-a" href="/2019/11/23/npm-script脚本命令学习总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">npm JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/23/npm-script脚本命令学习总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-微信小程序开发学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/14/微信小程序开发学习笔记/">微信小程序开发学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/14/微信小程序开发学习笔记/" class="archive-article-date">
+  	<time datetime="2019-11-14T02:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="page-json语法"><a href="#page-json语法" class="headerlink" title="page.json语法"></a>page.json语法</h4><ul>
+<li>JSON文件被包含在一个大括号中：{}</li>
+<li>JSON的key必须使用双引号包裹：“”</li>
+<li>JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型</li>
+</ul>
+<h4 id="dataset与mark"><a href="#dataset与mark" class="headerlink" title="dataset与mark"></a>dataset与mark</h4><p>dataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。<br>mark: 当事件触发时，事件冒泡路径上所有的 mark 会被合并，并返回给事件回调函数。</p>
+<ul>
+<li>但是，如果存在同名的 mark ，父节点的 mark 会被子节点覆盖。</li>
+<li>在自定义组件中接收事件时， mark 不包含自定义组件外的节点的 mark。</li>
+<li>节点的mark不会做连字符和大小写转换。</li>
+</ul>
+<h4 id="selectorQuery"><a href="#selectorQuery" class="headerlink" title="selectorQuery"></a>selectorQuery</h4><p>在自定义组件或包含自定义组件的页面中，推荐使用 this.createSelectorQuery 来代替 wx.createSelectorQuery ，这样可以确保在正确的范围内选择节点。</p>
+<h4 id="启用屏幕选择支持"><a href="#启用屏幕选择支持" class="headerlink" title="启用屏幕选择支持"></a>启用屏幕选择支持</h4><p>手机：使小程序中的页面支持屏幕旋转的方法是：在 app.json 的 window 段中设置 “pageOrientation”: “auto” ，或在页面 json 文件中配置 “pageOrientation”: “auto” 。<br>iPad：在 app.json 中添加 “resizable”: true 。注意：在 iPad 上不能单独配置某个页面是否支持屏幕旋转。</p>
+<h4 id="Component自定义组件"><a href="#Component自定义组件" class="headerlink" title="Component自定义组件"></a>Component自定义组件</h4><p>在 properties 定义段中，属性名采用驼峰写法（propertyName）；在 wxml 中，指定属性值时则对应使用连字符写法（component-tag-name property-name=”attr value”），应用于数据绑定时采用驼峰写法（attr=””）。</p>
+<h4 id="插入节点solt"><a href="#插入节点solt" class="headerlink" title="插入节点solt"></a>插入节点solt</h4><p>默认情况下，一个组件的wxml中只能有一个slot。需要使用多slot时，可以在组件js中声明启用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    multipleSlots: <span class="literal">true</span> <span class="comment">// 在组件定义时的选项中启用多slot支持</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>此时，可以在这个组件的wxml中使用多个slot，以不同的 name 来区分。</p>
+<h4 id="组件选择器"><a href="#组件选择器" class="headerlink" title="组件选择器"></a>组件选择器</h4><ul>
+<li>a { } /<em> 在组件中不能使用 </em>/</li>
+<li>[a] { } /<em> 在组件中不能使用 </em>/</li>
+<li>button { } /<em> 在组件中不能使用 </em>/</li>
+<li>.a &gt; .b { } /<em> 除非 .a 是 view 组件节点，否则不一定会生效 </em>/</li>
+<li>除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效（除非更改组件样式隔离选项）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    styleIsolation: <span class="string">'shared'</span> <span class="comment">// 默认值是isolation，表示启用样式隔离，官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">weixin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/14/微信小程序开发学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-watch用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/03/vue-watch用法总结/">vue的watch用法总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/03/vue-watch用法总结/" class="archive-article-date">
+  	<time datetime="2019-11-03T11:27:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>watch可用于监听vue实例数据的变化，下面详细总结一下watch的用法。</p>
+<h4 id="deep属性"><a href="#deep属性" class="headerlink" title="deep属性"></a>deep属性</h4><p>当变异对象发生变化的时候，vue并检查不到这种变化，所以不会触发watch函数来执行相应操作，这个时候我们使用deep属性，进行深入监听（注意：数组的变化不需要使用该属性）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line">      name: <span class="string">'Amber'</span>,</span><br><span class="line">      age: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  obj: &#123;</span><br><span class="line">    handler() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'obj changed'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/11/03/vue-watch用法总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/03/vue-watch用法总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-启动服务时抛错：permission-denied" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -718,201 +974,6 @@
 
 
   
-    <article id="post-使用hexo构建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/使用hexo构建博客/">使用hexo构建博客</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/15/使用hexo构建博客/" class="archive-article-date">
-  	<time datetime="2019-10-15T14:29:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/10/15/使用hexo构建博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/使用hexo构建博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-主题使用教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/22/主题使用教程/">主题使用教程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/22/主题使用教程/" class="archive-article-date">
-  	<time datetime="2019-09-22T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="hexo-theme-yilia"><a href="#hexo-theme-yilia" class="headerlink" title="hexo-theme-yilia"></a>hexo-theme-yilia</h3><p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/22/主题使用教程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git关联远程仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/22/git关联远程仓库/">git关联远程仓库</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/22/git关联远程仓库/" class="archive-article-date">
-  	<time datetime="2019-09-22T13:15:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>git remote add &lt;远程仓库名&gt; &lt;远程仓库地址&gt;<br>比如：git remote add origin <a href="https://github.com/AmberStory/AmberStory.github.io.git" target="_blank" rel="noopener">https://github.com/AmberStory/AmberStory.github.io.git</a><br>&lt;远程仓库名&gt;可以任意起，不过一般默认远程仓库名是origin</p>
-<p>一个项目可以有多个远程仓库，只需要通过<code>git remote add [shortname] [url]</code>命令添加即可。</p>
-<p>拉取远程仓库代码：<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;<br>例如：git pull dp-mp release_1.0.0</p>
-<p>向远程提交代码：<br>git push &lt;远程仓库名&gt; &lt;需要push的分支名&gt;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/22/git关联远程仓库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1059,7 +1120,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">npm JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,6 +1132,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -1079,11 +1152,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">js-sdk</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1095,19 +1176,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript Web</a>
               </li>
             
             <div class="clearfix"></div>
