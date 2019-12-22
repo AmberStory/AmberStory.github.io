@@ -155,6 +155,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue父子组件通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/22/vue父子组件通信/">Vue父子组件通信方式总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/22/vue父子组件通信/" class="archive-article-date">
+  	<time datetime="2019-12-22T08:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="方式一：自定义事件emit"><a href="#方式一：自定义事件emit" class="headerlink" title="方式一：自定义事件emit"></a>方式一：自定义事件emit</h2><p><strong> 官方文档：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-custom-events.html</a>? </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-on:handleClick=<span class="string">"alertAction($event, 'parentParams')"</span>&gt;</span><br><span class="line">    这是父组件</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;child /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 第一个参数是子组件通过emit传递的内容，第二个参数是父组件自己需要传递的内容</span></span><br><span class="line"><span class="regexp">    alertAction(e, parentParams) &#123;</span></span><br><span class="line"><span class="regexp">      alert(e); /</span><span class="regexp">/ handleClick</span></span><br><span class="line"><span class="regexp">      alert(parentParams); /</span><span class="regexp">/ parentParams</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// child.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-on:click=<span class="string">"clickAction"</span>&gt;</span><br><span class="line">    这是子组件</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    clickAction() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'handleClick'</span>, <span class="string">'子组件'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/scrip&gt;</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/12/22/vue父子组件通信/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/22/vue父子组件通信/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-code-complete" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/10/code-complete/">code complete</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/10/code-complete/" class="archive-article-date">
+  	<time datetime="2019-12-10T02:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="选择好的变量名"><a href="#选择好的变量名" class="headerlink" title="选择好的变量名"></a>选择好的变量名</h2><blockquote>
+<p>变量命名时最重要的考虑事项是，该名字要能够完全准确的描述出该变量所代表的事物。尽量不要使用让人看不懂的缩写。因为他是对事物的完整描述，所以不会和其他事物混淆。</p>
+<ul>
+<li>完整的描述变量名<br>表示“当前日期”的变量名可以命名为：currentDate，表示“中国奥林匹克代表团队成员数量”的变量，可以命名为：numberOfPeopleOnTheChinaOlympicTeam。</li></ul></blockquote>
+        
+          <a class="article-more-a" href="/2019/12/10/code-complete/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">coding</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/10/code-complete/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-npm-script脚本命令学习总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -257,27 +412,10 @@
         <h4 id="page-json语法"><a href="#page-json语法" class="headerlink" title="page.json语法"></a>page.json语法</h4><ul>
 <li>JSON文件被包含在一个大括号中：{}</li>
 <li>JSON的key必须使用双引号包裹：“”</li>
-<li>JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型</li>
-</ul>
-<h4 id="dataset与mark"><a href="#dataset与mark" class="headerlink" title="dataset与mark"></a>dataset与mark</h4><p>dataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。<br>mark: 当事件触发时，事件冒泡路径上所有的 mark 会被合并，并返回给事件回调函数。</p>
-<ul>
-<li>但是，如果存在同名的 mark ，父节点的 mark 会被子节点覆盖。</li>
-<li>在自定义组件中接收事件时， mark 不包含自定义组件外的节点的 mark。</li>
-<li>节点的mark不会做连字符和大小写转换。</li>
-</ul>
-<h4 id="selectorQuery"><a href="#selectorQuery" class="headerlink" title="selectorQuery"></a>selectorQuery</h4><p>在自定义组件或包含自定义组件的页面中，推荐使用 this.createSelectorQuery 来代替 wx.createSelectorQuery ，这样可以确保在正确的范围内选择节点。</p>
-<h4 id="启用屏幕选择支持"><a href="#启用屏幕选择支持" class="headerlink" title="启用屏幕选择支持"></a>启用屏幕选择支持</h4><p>手机：使小程序中的页面支持屏幕旋转的方法是：在 app.json 的 window 段中设置 “pageOrientation”: “auto” ，或在页面 json 文件中配置 “pageOrientation”: “auto” 。<br>iPad：在 app.json 中添加 “resizable”: true 。注意：在 iPad 上不能单独配置某个页面是否支持屏幕旋转。</p>
-<h4 id="Component自定义组件"><a href="#Component自定义组件" class="headerlink" title="Component自定义组件"></a>Component自定义组件</h4><p>在 properties 定义段中，属性名采用驼峰写法（propertyName）；在 wxml 中，指定属性值时则对应使用连字符写法（component-tag-name property-name=”attr value”），应用于数据绑定时采用驼峰写法（attr=””）。</p>
-<h4 id="插入节点solt"><a href="#插入节点solt" class="headerlink" title="插入节点solt"></a>插入节点solt</h4><p>默认情况下，一个组件的wxml中只能有一个slot。需要使用多slot时，可以在组件js中声明启用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    multipleSlots: <span class="literal">true</span> <span class="comment">// 在组件定义时的选项中启用多slot支持</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>此时，可以在这个组件的wxml中使用多个slot，以不同的 name 来区分。</p>
-<h4 id="组件选择器"><a href="#组件选择器" class="headerlink" title="组件选择器"></a>组件选择器</h4><ul>
-<li>a { } /<em> 在组件中不能使用 </em>/</li>
-<li>[a] { } /<em> 在组件中不能使用 </em>/</li>
-<li>button { } /<em> 在组件中不能使用 </em>/</li>
-<li>.a &gt; .b { } /<em> 除非 .a 是 view 组件节点，否则不一定会生效 </em>/</li>
-<li>除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效（除非更改组件样式隔离选项）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    styleIsolation: <span class="string">'shared'</span> <span class="comment">// 默认值是isolation，表示启用样式隔离，官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+<li>JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型</li></ul>
+        
+          <a class="article-more-a" href="/2019/11/14/微信小程序开发学习笔记/#more">more >></a>
+        
       
 
       
@@ -810,170 +948,6 @@
 
 
   
-    <article id="post-for-in和for-of" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/for-in和for-of/">for in和for of</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/15/for-in和for-of/" class="archive-article-date">
-  	<time datetime="2019-10-15T14:58:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h3><p>for…in是es5标准，以任意顺序遍历一个对象的除Symbol以外的可枚举属性（循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性（更接近原型链中对象的属性覆盖原型属性）)。如果只要考虑对象本身的属性，而不是它的原型，那么使用 getOwnPropertyNames() 或执行 hasOwnProperty() 来确定某属性是否是对象本身的属性（也能使用propertyIsEnumerable）。<br></p>
-        
-          <a class="article-more-a" href="/2019/10/15/for-in和for-of/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/for-in和for-of/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-locationStorage和sessionStorage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/locationStorage和sessionStorage/">locationStorage和sessionStorage</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/15/locationStorage和sessionStorage/" class="archive-article-date">
-  	<time datetime="2019-10-15T14:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>locationStorage和sessionStorage都属于本地存储，存储的数据都保存在浏览器会话中，二者的区别在于：<br>locationStorage存储的数据可以长期保留，除非强制清除；而sessionStorage存储的数据仅存在于页面会话期间，即当页面关闭之后，sessionStorage中的数据就会被清除。<br></p>
-        
-          <a class="article-more-a" href="/2019/10/15/locationStorage和sessionStorage/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">storage</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/15/locationStorage和sessionStorage/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1100,6 +1074,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -1164,6 +1142,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
@@ -1177,10 +1159,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">

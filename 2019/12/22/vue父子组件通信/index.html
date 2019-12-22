@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Linux命令 | AmberStory</title>
+  <title>Vue父子组件通信方式总结 | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="curl-v-v参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。$ curl -v http://example -b-b参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。$ curl -b &amp;quot;token=PS-1YW8oJ65LIc&amp;quot; http://example.com">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="方式一：自定义事件emit 官方文档：https://cn.vuejs.org/v2/guide/components-custom-events.html? 123456789101112131415161718192021222324252627282930// parent.vue&amp;lt;template&amp;gt;  &amp;lt;div v-on:handleClick=&quot;alertAction(">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令">
-<meta property="og:url" content="http://yoursite.com/2019/07/30/Linux命令/index.html">
+<meta property="og:title" content="Vue父子组件通信方式总结">
+<meta property="og:url" content="http://yoursite.com/2019/12/22/vue父子组件通信/index.html">
 <meta property="og:site_name" content="AmberStory">
-<meta property="og:description" content="curl-v-v参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。$ curl -v http://example -b-b参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。$ curl -b &amp;quot;token=PS-1YW8oJ65LIc&amp;quot; http://example.com">
+<meta property="og:description" content="方式一：自定义事件emit 官方文档：https://cn.vuejs.org/v2/guide/components-custom-events.html? 123456789101112131415161718192021222324252627282930// parent.vue&amp;lt;template&amp;gt;  &amp;lt;div v-on:handleClick=&quot;alertAction(">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-15T14:29:08.000Z">
+<meta property="og:updated_time" content="2019-12-22T09:55:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令">
-<meta name="twitter:description" content="curl-v-v参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。$ curl -v http://example -b-b参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。$ curl -b &amp;quot;token=PS-1YW8oJ65LIc&amp;quot; http://example.com">
+<meta name="twitter:title" content="Vue父子组件通信方式总结">
+<meta name="twitter:description" content="方式一：自定义事件emit 官方文档：https://cn.vuejs.org/v2/guide/components-custom-events.html? 123456789101112131415161718192021222324252627282930// parent.vue&amp;lt;template&amp;gt;  &amp;lt;div v-on:handleClick=&quot;alertAction(">
   
     <link rel="alternative" href="/atom.xml" title="AmberStory" type="application/atom+xml">
   
@@ -155,38 +155,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue父子组件通信" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux命令
+      Vue父子组件通信方式总结
     </h1>
   
 
         
-        <a href="/2019/07/30/Linux命令/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+        <a href="/2019/12/22/vue父子组件通信/" class="archive-article-date">
+  	<time datetime="2019-12-22T08:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p><code>-v</code>参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。<br><code>$ curl -v http://example</code></p>
-<h3 id="b"><a href="#b" class="headerlink" title="-b"></a>-b</h3><p><code>-b</code>参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。<br><code>$ curl -b &quot;token=PS-1YW8oJ65LIc&quot; http://example.com</code></p>
+        <h2 id="方式一：自定义事件emit"><a href="#方式一：自定义事件emit" class="headerlink" title="方式一：自定义事件emit"></a>方式一：自定义事件emit</h2><p><strong> 官方文档：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-custom-events.html</a>? </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-on:handleClick=<span class="string">"alertAction($event, 'parentParams')"</span>&gt;</span><br><span class="line">    这是父组件</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;child /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 第一个参数是子组件通过emit传递的内容，第二个参数是父组件自己需要传递的内容</span></span><br><span class="line"><span class="regexp">    alertAction(e, parentParams) &#123;</span></span><br><span class="line"><span class="regexp">      alert(e); /</span><span class="regexp">/ handleClick</span></span><br><span class="line"><span class="regexp">      alert(parentParams); /</span><span class="regexp">/ parentParams</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// child.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-on:click=<span class="string">"clickAction"</span>&gt;</span><br><span class="line">    这是子组件</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    clickAction() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'handleClick'</span>, <span class="string">'子组件'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/scrip&gt;</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ol>
-<li><a href="https://itbilu.com/linux/man/4yZ9qH_7X.html" target="_blank" rel="noopener">https://itbilu.com/linux/man/4yZ9qH_7X.html</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/09/curl.html</a></li>
-</ol>
-<h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><p>gzip file 可以用来压缩文件<br>gzip -dv file 用来解压压缩后的文件 </p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
-<li><a href="http://man.linuxde.net/gzip" target="_blank" rel="noopener">http://man.linuxde.net/gzip</a></li>
-</ol>
+<h2 id="方式二：自定义事件v-model"><a href="#方式二：自定义事件v-model" class="headerlink" title="方式二：自定义事件v-model"></a>方式二：自定义事件v-model</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;这是父组件&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;child v-model="showChild" /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  data() &#123;</span></span><br><span class="line"><span class="regexp">    return &#123;</span></span><br><span class="line"><span class="regexp">      showChild: true</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// child.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-on:click=<span class="string">"close"</span>&gt;</span><br><span class="line">    这是子组件</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    close() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'input'</span>, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/scrip&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>v-model会自动绑定一个value属性和input事件，一般用来控制一个组件是否展示。</li>
+</ul>
+<h2 id="方式三：事件发射器this-emit和this-on"><a href="#方式三：事件发射器this-emit和this-on" class="headerlink" title="方式三：事件发射器this.\$emit和this.\$on"></a>方式三：事件发射器this.\$emit和this.\$on</h2><p><strong> 官方文档：<a href="https://cn.vuejs.org/v2/guide/migration.html#dispatch-%E5%92%8C-broadcast-%E6%9B%BF%E6%8D%A2" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/migration.html#dispatch-%E5%92%8C-broadcast-%E6%9B%BF%E6%8D%A2</a> </strong><br>在事件中心管理组件间的通信，将在各处使用该事件中心，可以使用 \$emit, \$on, \$off 分别来分发、监听、取消监听事件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件管理中心</span></span><br><span class="line"><span class="keyword">let</span> eventHub = <span class="keyword">new</span> Vue();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// todos.vue</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  eventHub.$on(<span class="string">'addItem'</span>, item);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ item.vue</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  eventHub.$emit('addItem', &#123;text: '整理vue父子组件通信博客'&#125;);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="方式四：通过refs访问子组件实例"><a href="#方式四：通过refs访问子组件实例" class="headerlink" title="方式四：通过refs访问子组件实例"></a>方式四：通过refs访问子组件实例</h2><p><strong> 官方文档：<a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E8%AE%BF%E9%97%AE%E5%AD%90%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%88%96%E5%AD%90%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E8%AE%BF%E9%97%AE%E5%AD%90%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E6%88%96%E5%AD%90%E5%85%83%E7%B4%A0</a> </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;child ref=<span class="string">"childProp"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    focus() &#123;</span></span><br><span class="line"><span class="regexp">      this.$refs.childProp.execFocus();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// child.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input ref=<span class="string">"input"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    execFocus() &#123;</span></span><br><span class="line"><span class="regexp">      this.$refs.input.focus();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>scipt&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>注意：\$refs 只会在组件渲染完成之后生效，并且它们不是响应式的。这仅作为一个用于直接操作子组件的“逃生舱”——你应该避免在模板或计算属性中访问 \$refs。</li>
+</ul>
+<h2 id="通过-sync实现prop的“双向绑定”"><a href="#通过-sync实现prop的“双向绑定”" class="headerlink" title="通过.sync实现prop的“双向绑定”"></a>通过.sync实现prop的“双向绑定”</h2><p><strong> 官方文档：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6</a> </strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parent.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;child</span><br><span class="line">  v-bind=<span class="string">"doc.title"</span></span><br><span class="line">  v-on:update:title=<span class="string">"doc.title=$event"</span></span><br><span class="line">  /&gt;</span><br><span class="line">  <span class="comment">// 等价于：&lt;child v-bind:title.sync="doc.title" /&gt;</span></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ child.vue</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  methods: &#123;</span></span><br><span class="line"><span class="regexp">    changeTitle() &#123;</span></span><br><span class="line"><span class="regexp">      this.$emit('update:title', newTitle);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>一般用于需要修改父组件传递给子组件参数的情况，也可以通过对象的方式给子组件传值，此时可以在子组件内直接修改父组件传递的对象属性值，并且父组件中的值也会相应发生变化。</li>
+</ul>
 
       
 
@@ -221,7 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -277,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/30/Linux命令/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/22/vue父子组件通信/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/04/SVG实现倒计时/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SVG实现倒计时动效
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/30/正则的魅力/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">正则的魅力</div>
+    <a href="/2019/12/10/code-complete/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">code complete</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -329,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl"><span class="toc-number">1.</span> <span class="toc-text">curl</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v"><span class="toc-number">1.1.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b"><span class="toc-number">1.2.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文档"><span class="toc-number">1.3.</span> <span class="toc-text">参考文档</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gzip"><span class="toc-number">2.</span> <span class="toc-text">gzip</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-number">2.1.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式一：自定义事件emit"><span class="toc-number">1.</span> <span class="toc-text">方式一：自定义事件emit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式二：自定义事件v-model"><span class="toc-number">2.</span> <span class="toc-text">方式二：自定义事件v-model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式三：事件发射器this-emit和this-on"><span class="toc-number">3.</span> <span class="toc-text">方式三：事件发射器this.\$emit和this.\$on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式四：通过refs访问子组件实例"><span class="toc-number">4.</span> <span class="toc-text">方式四：通过refs访问子组件实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过-sync实现prop的“双向绑定”"><span class="toc-number">5.</span> <span class="toc-text">通过.sync实现prop的“双向绑定”</span></a></li></ol>
                     </div>
                 </span>
             </div>

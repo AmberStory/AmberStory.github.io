@@ -17,7 +17,7 @@
 <meta property="og:description" content="JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。 引用类型复制12">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/10/19/深拷贝和浅拷贝/对象复制.png">
-<meta property="og:updated_time" content="2019-10-20T11:54:11.000Z">
+<meta property="og:updated_time" content="2019-11-27T02:57:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝和浅拷贝">
 <meta name="twitter:description" content="JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。 引用类型复制12">
@@ -182,7 +182,7 @@
 <a id="more"></a>
 <p>由以上示例可以看出，当改变obj2中a的值的时候，obj1中a的值也发生了同样的变化。因为引用类型变量的值实际上是一个指针，指向存储在堆内存中的对象。当把obj1的值赋给obj2时，只是复制出一个指向同一堆内存的指针，所以当通过obj2操作堆内存中的对象时，obj1取到的值也同样发生了改变。<br><img src="/2019/10/19/深拷贝和浅拷贝/对象复制.png"></p>
 <h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
-<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值；如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值；如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。（注意：如果是赋值语句（=），将一个对象赋值给另一个对象，则无论对象中的属性是什么类型，两个对象值的改变都会相互影响。）</p>
 </blockquote>
 <h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p>ES6提供的浅拷贝方法，语法：Object.assign(target, …soruces);<br>接收的第一个参数是拷贝的目标，剩下的是拷贝的源对象（可以是多个）。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">msg</span>: &#123; <span class="attr">name</span>: <span class="string">'Amber'</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;&#125;;</span><br><span class="line">obj2 = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2, obj1);</span><br><span class="line">obj1.a = <span class="number">2</span>;</span><br><span class="line">obj1.msg.age = <span class="number">22</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1);  <span class="comment">// &#123; a: 2, msg: &#123;  name: 'Amber', age: 22 &#125;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2);  <span class="comment">// &#123; a: 1, msg: &#123;  name: 'Amber', age: 22 &#125;&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>对于值依然是对象的元素，属于浅拷贝，改变一个对象的值，目标对象的值也会变化。</p>
@@ -478,6 +478,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -542,6 +546,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
@@ -555,10 +563,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">

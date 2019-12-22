@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>微信小程序开发学习笔记 | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型  dataset与markdataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。mark: 当">
+  <meta name="description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型">
 <meta name="keywords" content="weixin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序开发学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/11/14/微信小程序开发学习笔记/index.html">
 <meta property="og:site_name" content="AmberStory">
-<meta property="og:description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型  dataset与markdataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。mark: 当">
+<meta property="og:description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-16T03:46:56.000Z">
+<meta property="og:updated_time" content="2019-11-26T15:24:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序开发学习笔记">
-<meta name="twitter:description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型  dataset与markdataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。mark: 当">
+<meta name="twitter:description" content="page.json语法 JSON文件被包含在一个大括号中：{} JSON的key必须使用双引号包裹：“” JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型">
   
     <link rel="alternative" href="/atom.xml" title="AmberStory" type="application/atom+xml">
   
@@ -178,10 +178,8 @@
         <h4 id="page-json语法"><a href="#page-json语法" class="headerlink" title="page.json语法"></a>page.json语法</h4><ul>
 <li>JSON文件被包含在一个大括号中：{}</li>
 <li>JSON的key必须使用双引号包裹：“”</li>
-<li>JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型</li>
-</ul>
-<h4 id="dataset与mark"><a href="#dataset与mark" class="headerlink" title="dataset与mark"></a>dataset与mark</h4><p>dataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。<br>mark: 当事件触发时，事件冒泡路径上所有的 mark 会被合并，并返回给事件回调函数。</p>
-<ul>
+<li>JSON的value可以包含：数字，字符串，bool，数组，对象，null，六种类型<a id="more"></a>
+<h4 id="dataset与mark"><a href="#dataset与mark" class="headerlink" title="dataset与mark"></a>dataset与mark</h4>dataset: 在 WXML 中，自定义的数据以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符。<br>mark: 当事件触发时，事件冒泡路径上所有的 mark 会被合并，并返回给事件回调函数。</li>
 <li>但是，如果存在同名的 mark ，父节点的 mark 会被子节点覆盖。</li>
 <li>在自定义组件中接收事件时， mark 不包含自定义组件外的节点的 mark。</li>
 <li>节点的mark不会做连字符和大小写转换。</li>
@@ -192,12 +190,20 @@
 <h4 id="插入节点solt"><a href="#插入节点solt" class="headerlink" title="插入节点solt"></a>插入节点solt</h4><p>默认情况下，一个组件的wxml中只能有一个slot。需要使用多slot时，可以在组件js中声明启用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    multipleSlots: <span class="literal">true</span> <span class="comment">// 在组件定义时的选项中启用多slot支持</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>此时，可以在这个组件的wxml中使用多个slot，以不同的 name 来区分。</p>
 <h4 id="组件选择器"><a href="#组件选择器" class="headerlink" title="组件选择器"></a>组件选择器</h4><ul>
-<li>a { } /<em> 在组件中不能使用 </em>/</li>
-<li>[a] { } /<em> 在组件中不能使用 </em>/</li>
-<li>button { } /<em> 在组件中不能使用 </em>/</li>
-<li>.a &gt; .b { } /<em> 除非 .a 是 view 组件节点，否则不一定会生效 </em>/</li>
-<li>除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效（除非更改组件样式隔离选项）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    styleIsolation: <span class="string">'shared'</span> <span class="comment">// 默认值是isolation，表示启用样式隔离，官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>a { 样式 } /<em> 在组件中不能使用 </em>/</li>
+<li>[a] { 样式 } /<em> 在组件中不能使用 </em>/</li>
+<li>button { 样式 } /<em> 在组件中不能使用 </em>/</li>
+<li>.a &gt; .b { 样式 } /<em> 除非 .a 是 view 组件节点，否则不一定会生效 </em>/</li>
+<li>除继承样式外， app.wxss 中的样式、组件所在页面的的样式对自定义组件无效（除非更改组件样式隔离选项）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    styleIsolation: <span class="string">'shared'</span> <span class="comment">// 默认值是isolation，表示启用样式隔离，官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h4 id="behaviors"><a href="#behaviors" class="headerlink" title="behaviors"></a>behaviors</h4><p><strong>字段的覆盖和组合规则</strong><br>组件和它引用的 behavior 中可以包含同名的字段，对这些字段的处理方法如下：</p>
+<ul>
+<li>如果有同名的属性或方法，组件本身的属性或方法会覆盖 behavior 中的属性或方法，如果引用了多个 behavior ，在定义段中靠后 behavior 中的属性或方法会覆盖靠前的属性或方法；</li>
+<li>如果有同名的数据字段，如果数据是对象类型，会进行对象合并，如果是非对象类型则会进行相互覆盖；</li>
+<li>生命周期函数不会相互覆盖，而是在对应触发时机被逐个调用，会依次执行 behavior 中的生命周期方法，再执行当前组件的生命周期方法。如果同一个 behavior 被一个组件多次引用，它定义的生命周期函数只会被执行一次</li>
+</ul>
+<h4 id="wx-component-export"><a href="#wx-component-export" class="headerlink" title="wx://component-export"></a>wx://component-export</h4><p>从基础库版本 2.2.3 开始提供支持。<br>使自定义组件支持 export 定义段。这个定义段可以用于指定组件被 selectComponent 调用时的返回值。</p>
 
       
 
@@ -340,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-json语法"><span class="toc-number">1.</span> <span class="toc-text">page.json语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dataset与mark"><span class="toc-number">2.</span> <span class="toc-text">dataset与mark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#selectorQuery"><span class="toc-number">3.</span> <span class="toc-text">selectorQuery</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用屏幕选择支持"><span class="toc-number">4.</span> <span class="toc-text">启用屏幕选择支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Component自定义组件"><span class="toc-number">5.</span> <span class="toc-text">Component自定义组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入节点solt"><span class="toc-number">6.</span> <span class="toc-text">插入节点solt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件选择器"><span class="toc-number">7.</span> <span class="toc-text">组件选择器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#page-json语法"><span class="toc-number">1.</span> <span class="toc-text">page.json语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dataset与mark"><span class="toc-number">2.</span> <span class="toc-text">dataset与mark</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#selectorQuery"><span class="toc-number">3.</span> <span class="toc-text">selectorQuery</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用屏幕选择支持"><span class="toc-number">4.</span> <span class="toc-text">启用屏幕选择支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Component自定义组件"><span class="toc-number">5.</span> <span class="toc-text">Component自定义组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入节点solt"><span class="toc-number">6.</span> <span class="toc-text">插入节点solt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件选择器"><span class="toc-number">7.</span> <span class="toc-text">组件选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#behaviors"><span class="toc-number">8.</span> <span class="toc-text">behaviors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wx-component-export"><span class="toc-number">9.</span> <span class="toc-text">wx://component-export</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,6 +487,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -545,6 +555,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
@@ -558,10 +572,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">

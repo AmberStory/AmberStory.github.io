@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="$0-$9$1, $2, $3, $4, $5, $6, $7, $8, $9 的属性是用于匹配正则表达式中包含括号的子串。例举1：str = &amp;#39;https://baidu.com/abc/test/home&amp;#39;; reg = /(https|http):\/\/baidu.com\/(.*)/; str.match(reg); 打印：RegExp.$1  // httpsRegE">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-15T14:29:08.000Z">
+<meta property="og:updated_time" content="2019-12-15T13:27:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则的魅力">
 <meta name="twitter:description" content="$0-$9$1, $2, $3, $4, $5, $6, $7, $8, $9 的属性是用于匹配正则表达式中包含括号的子串。例举1：str = &amp;#39;https://baidu.com/abc/test/home&amp;#39;; reg = /(https|http):\/\/baidu.com\/(.*)/; str.match(reg); 打印：RegExp.$1  // httpsRegE">
@@ -189,8 +189,26 @@ RegExp.$2; // &quot;Smith&quot;</code></p>
 <blockquote>
 <p>该特性是非标准的，请尽量不要在生产环境中使用它！</p>
 </blockquote>
+<h2 id="分组构建"><a href="#分组构建" class="headerlink" title="分组构建"></a>分组构建</h2><ul>
+<li><p>匹配子表达式，用法：(子表达式)<br>其中子表达式为任何有效的正在表达式模式。使用括号的捕获从左到右从1开始自动编号。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'2019-12-15'</span>;</span><br><span class="line">re = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span>;</span><br><span class="line">str.match(re);</span><br><span class="line"><span class="built_in">RegExp</span>.$<span class="number">1</span>;  <span class="comment">// 2019</span></span><br><span class="line"><span class="built_in">RegExp</span>.$<span class="number">2</span>;  <span class="comment">// 12</span></span><br><span class="line"><span class="built_in">RegExp</span>.$<span class="number">3</span> <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名匹配子表达式，用法(?<name>sbuexpression)或者(?’name’subexpression)</name></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'2019-12-15'</span>;</span><br><span class="line">re = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;)-(?&lt;month&gt;\d&#123;2&#125;)-(?&lt;day&gt;\d&#123;2&#125;)/</span>;</span><br><span class="line">m = str.match(re);</span><br><span class="line">m.groups; <span class="comment">// &#123;day: "15", month: "12", year: "2019"&#125;</span></span><br><span class="line">m.groups.day; <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用在replace方法上：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'2019-12-15'</span>;</span><br><span class="line">re = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;)-(?&lt;month&gt;\d&#123;2&#125;)-(?&lt;day&gt;\d&#123;2&#125;)/</span>;</span><br><span class="line">str.replace(re, <span class="string">'$&lt;day&gt;-$&lt;month&gt;-$&lt;year&gt;'</span>); <span class="comment">// 15-12-2019</span></span><br><span class="line">str.replace(re, <span class="string">'$3-$2-$1'</span>);  <span class="comment">// 15-12-2019</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="amp-符"><a href="#amp-符" class="headerlink" title="$&amp; 符"></a>$&amp; 符</h2><p>title.replace(reg, ‘<span>$&amp;</span>‘);<br>&amp;$可替换reg匹配中的内容；</p>
-<h2 id="p-断言位置的方法"><a href="#p-断言位置的方法" class="headerlink" title="(?=p)断言位置的方法"></a>(?=p)断言位置的方法</h2><p>(?=p)表示匹配字母p前面的位置，例如：<br><br>reg = /(?=y)/; <br><br>str = “your you”;<br>str.replace(reg, “aa”);  // aayour you <br><br>(?!p)是(?=p)的取反，比如(?!^)表示不匹配开始的位置。</p>
+<h2 id="断言符号"><a href="#断言符号" class="headerlink" title="断言符号"></a>断言符号</h2><ul>
+<li>(?=p)前置断言，表示匹配字母p前面的位置，例如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg = <span class="regexp">/(?=y)/</span>; </span><br><span class="line">str = <span class="string">"your you"</span>;</span><br><span class="line">str.replace(reg, <span class="string">"aa"</span>);  <span class="comment">// aayour you</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>(?!p)是(?=p)的取反，比如(?!^)表示不匹配开始的位置。</p>
+<ul>
+<li>(?&lt;=p)后置断言，表示匹配p后面的位置，例如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg = <span class="regexp">/(?&lt;=hello\s)world/</span>;</span><br><span class="line">str = <span class="string">'hello world'</span>;</span><br><span class="line">srt.match(reg); <span class="comment">// world</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上述表达希望匹配出前面是hello的world。</p>
 <h2 id="反向引用：-1"><a href="#反向引用：-1" class="headerlink" title="反向引用：\1"></a>反向引用：\1</h2><p>反向引用可以方便的进行重复字符组的查找，比如/(.)\1/可以匹配任意重复的两个字符。</p>
 <h2 id="b单词边界，-B非单词边界"><a href="#b单词边界，-B非单词边界" class="headerlink" title="\b单词边界，\B非单词边界"></a>\b单词边界，\B非单词边界</h2>
       
@@ -334,7 +352,7 @@ RegExp.$2; // &quot;Smith&quot;</code></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-9"><span class="toc-number">1.</span> <span class="toc-text">$0-$9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#amp-符"><span class="toc-number">2.</span> <span class="toc-text">$&amp; 符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p-断言位置的方法"><span class="toc-number">3.</span> <span class="toc-text">(?=p)断言位置的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向引用：-1"><span class="toc-number">4.</span> <span class="toc-text">反向引用：\1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b单词边界，-B非单词边界"><span class="toc-number">5.</span> <span class="toc-text">\b单词边界，\B非单词边界</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-9"><span class="toc-number">1.</span> <span class="toc-text">$0-$9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组构建"><span class="toc-number">2.</span> <span class="toc-text">分组构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#amp-符"><span class="toc-number">3.</span> <span class="toc-text">$&amp; 符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#断言符号"><span class="toc-number">4.</span> <span class="toc-text">断言符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向引用：-1"><span class="toc-number">5.</span> <span class="toc-text">反向引用：\1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b单词边界，-B非单词边界"><span class="toc-number">6.</span> <span class="toc-text">\b单词边界，\B非单词边界</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -475,6 +493,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -539,6 +561,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
@@ -552,10 +578,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">

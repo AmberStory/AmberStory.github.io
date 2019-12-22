@@ -155,6 +155,174 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-正则的魅力" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/30/正则的魅力/">正则的魅力</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/30/正则的魅力/" class="archive-article-date">
+  	<time datetime="2019-07-30T10:53:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="0-9"><a href="#0-9" class="headerlink" title="$0-$9"></a>$0-$9</h2><p><strong>$1, $2, $3, $4, $5, $6, $7, $8, $9 的属性是用于匹配正则表达式中包含括号的子串。</strong><br>例举1：<br><code>str = &#39;https://baidu.com/abc/test/home&#39;;
+reg = /(https|http):\/\/baidu.com\/(.*)/;
+str.match(reg);</code></p>
+<p>打印：<br>RegExp.$1  // https<br>RegExp.$2  // abc/test/home<br>RegExp.$3  // ‘’<br>分析原因：<br>reg正则表达式中第一个括号中的规则匹配到的str中的内容是‘https’；<br>reg正则表达式中第二个括号中的规则匹配到的str中的内容是‘abc/test/home’；<br>没有第三个括号，所以RegExp.$3匹配的内容为空。</p>
+        
+          <a class="article-more-a" href="/2019/07/30/正则的魅力/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">RegExp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/30/正则的魅力/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/30/ES6语法/">ES6语法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/30/ES6语法/" class="archive-article-date">
+  	<time datetime="2019-07-30T10:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="async-await与forEach的爱恨情仇"><a href="#async-await与forEach的爱恨情仇" class="headerlink" title="async await与forEach的爱恨情仇"></a>async await与forEach的爱恨情仇</h2><h3 id="async函数和await关键字"><a href="#async函数和await关键字" class="headerlink" title="async函数和await关键字"></a>async函数和await关键字</h3><p>async和await是由ES7提供的函数和关键字，async用于声明一个异步函数，await强制其他异步代码等待promise请求结果返回（相当于then的用法），但不能放在普通函数中使用，只能用在async函数里面使用。<br><br><code>async function myFunction() {
+try {
+  await requestAPromise();
+} catch(err) {
+  console.log(err);}
+}</code><br>await最好放在try中，如果请求出错可以就进行catch捕获。</p>
+<p><code>async function(db) dbFun{
+  docs = [{},{},{}];
+  docs.forEach(function(doc){
+    await db.post(doc);
+  })
+}</code><br>报错，因为await用在了普通函数中。</p>
+        
+          <a class="article-more-a" href="/2019/07/30/ES6语法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ES6 JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/30/ES6语法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-图解HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -681,6 +849,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -745,6 +917,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">wx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">weixin</a>
               </li>
              
@@ -758,10 +934,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">wx</a>
               </li>
              
               <li class="article-tag-list-item">
