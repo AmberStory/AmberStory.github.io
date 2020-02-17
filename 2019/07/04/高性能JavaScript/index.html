@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="《高性能JavaScript》学习笔记JavaScript加载与执行 JavaScript代码的下载和执行经常会阻塞浏览器的其他进程，从而带来严重的用户体验问题，管理好JavaScript代码是提高web性能的关键。  减少JavaScript对性能影响的方法：  &amp;lt;/body&amp;gt;闭合标签之前，将所有&amp;lt;script&amp;gt;标签放在页面底部。由于浏览器在解析到标签之前，不会渲染页面的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-06T07:59:44.000Z">
+<meta property="og:updated_time" content="2020-01-19T12:41:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高性能JavaScript">
 <meta name="twitter:description" content="《高性能JavaScript》学习笔记JavaScript加载与执行 JavaScript代码的下载和执行经常会阻塞浏览器的其他进程，从而带来严重的用户体验问题，管理好JavaScript代码是提高web性能的关键。  减少JavaScript对性能影响的方法：  &amp;lt;/body&amp;gt;闭合标签之前，将所有&amp;lt;script&amp;gt;标签放在页面底部。由于浏览器在解析到标签之前，不会渲染页面的">
@@ -237,7 +237,7 @@
 <li>改变普通文档流中元素的位置。</li>
 <li>改变元素尺寸（包括：外边距、内边距、边框宽度、厚度、高度等属性）。</li>
 <li>内容改变，例如：文本改变、图片改变（尺寸不一样的图片）。</li>
-<li>页面渲染器初始。</li>
+<li>页面渲染器初始化。</li>
 <li>浏览器窗口改变。</li>
 <li>出现滚动条（会引起整个页面的重排）。</li>
 </ul>
@@ -245,9 +245,9 @@
 <p>示例中，body元素改变了三次color值，且每改变一次都读取一个computed样式属性，虽然读取的属性都与改变的样式无关，但是浏览器却需要刷新渲染队列和重排，因为computed样式属性被请求了。<br>一个更高效的方法是，不要在布局信息改变的时候查询它，以上代码改写如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> computed = <span class="built_in">window</span>.getComputedStyle(<span class="string">'document.body'</span>, <span class="string">''</span>);</span><br><span class="line"><span class="keyword">let</span> style = <span class="built_in">document</span>.body.style;</span><br><span class="line"><span class="keyword">let</span> tem = <span class="string">''</span>;</span><br><span class="line">style.color = <span class="string">'red'</span>;</span><br><span class="line">style.color = <span class="string">'green'</span>;</span><br><span class="line">style.color = <span class="string">'yellow'</span>;</span><br><span class="line">tem = computed.height;</span><br><span class="line">tem = computed.width;</span><br><span class="line">tem = computed.background;</span><br></pre></td></tr></table></figure></p>
 <h4 id="批量处理样式"><a href="#批量处理样式" class="headerlink" title="批量处理样式"></a>批量处理样式</h4><ul>
 <li><p>通过cssText批量设置属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">app.style.cssText = <span class="string">'height: 100px; width: 200px; color: green;'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">app.style.cssText = <span class="string">'height: 100px; width: 200px; color: green;'</span>;</span><br></pre></td></tr></table></figure>
 <p>cssText属性可以合并所有的样式改变一次处理，这样只会修改一次DOM。但是cssText属性会覆盖已有的样式信息，如果想要保留已有样式，可以把需要变更的样式附加在cssText字符串后面，上面的代码改写如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">app.style.cssText += <span class="string">'; height: 100px; width: 200px; color: green;'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>);</span><br><span class="line">app.style.cssText += <span class="string">'; height: 100px; width: 200px; color: green;'</span>;</span><br></pre></td></tr></table></figure>
 <p>参考文档：<a href="https://cloud.tencent.com/developer/article/1057545" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1057545</a><br><br></p>
 </li>
 <li>通过改变DOM中class的值来改变样式</li>
@@ -301,27 +301,21 @@
 <li>提高正则表达式效率的方法</li>
 </ul>
 <ol>
-<li>让匹配失败的更快，因为匹配过程大部分都是失败的情况，只有失败的速度更快，才能更快得出结论。</li>
-<li><p>减少分支数量，缩小分支范围；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat|<span class="function"><span class="params">bat</span> =&gt;</span> [cb]at</span><br><span class="line">hello|<span class="function"><span class="params">happy</span> =&gt;</span> h(ello|appy)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把正则表达式赋值给变量并重用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每次循环浏览器需要重新对正则表达式进行编译</span></span><br><span class="line"><span class="keyword">while</span>(<span class="regexp">/reg1/</span>.test(str1)) &#123;</span><br><span class="line">  /reg2/.test(str2);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>让匹配失败的更快，因为匹配过程大部分都是失败的情况，只有失败的速度更快，才能更快得出结论。<br>2.减少分支数量，缩小分支范围；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat|<span class="function"><span class="params">bat</span> =&gt;</span> [cb]at</span><br><span class="line">hello|<span class="function"><span class="params">happy</span> =&gt;</span> h(ello|appy)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>3.把正则表达式赋值给变量并重用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每次循环浏览器需要重新对正则表达式进行编译</span></span><br><span class="line"><span class="keyword">while</span>(<span class="regexp">/reg1/</span>.test(str1)) &#123;</span><br><span class="line">  /reg2/.test(str2);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>改写成：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg1 = <span class="regexp">/reg1/</span>;</span><br><span class="line"><span class="keyword">const</span> reg2 = <span class="regexp">/reg2/</span>;</span><br><span class="line"><span class="keyword">while</span>(reg1.test(str1)) &#123;</span><br><span class="line">  reg2.test(str2);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="4">
-<li>将复杂的正则表达式拆分成简单的片段<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line">str.replace(<span class="regexp">/^\s+/</span>, <span class="string">''</span>).replace(<span class="regexp">/\s+$/</span>, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二</span></span><br><span class="line">str.replace(<span class="regexp">/^\s+|\s+$/</span>, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>4.将复杂的正则表达式拆分成简单的片段<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line">str.replace(<span class="regexp">/^\s+/</span>, <span class="string">''</span>).replace(<span class="regexp">/\s+$/</span>, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二</span></span><br><span class="line">str.replace(<span class="regexp">/^\s+|\s+$/</span>, <span class="string">''</span>);</span><br></pre></td></tr></table></figure></p>
 <p>方式二比方式一慢一些，因为两个分支选项在每个字符串匹配时都要被测试一遍。</p>
 <ul>
 <li><p>不滥用正则<br>当我们可以轻松使用JS提供的能力筛选出字符串的时候，就不需要使用正则来判断，比如检查某个字符串是否以“；”结尾。</p>
 </li>
 <li><p>去除字符串首尾空格的解决方案<br>采用混合方式：首部用正则判断，尾部用js判断</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  str = str.replace(<span class="regexp">/^\s+/</span>, <span class="string">''</span>);</span><br><span class="line">  len = str.length - <span class="number">1</span>;</span><br><span class="line">  reg = <span class="regexp">/\s/</span>;</span><br><span class="line">  <span class="keyword">while</span>(reg.test(str.charAt(end))) &#123;</span><br><span class="line">    end--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str.slice(<span class="number">0</span>, end+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  str = str.replace(<span class="regexp">/^\s+/</span>, <span class="string">''</span>);</span><br><span class="line">  len = str.length - <span class="number">1</span>;</span><br><span class="line">  reg = <span class="regexp">/\s/</span>;</span><br><span class="line">  <span class="keyword">while</span>(reg.test(str.charAt(end))) &#123;</span><br><span class="line">    end--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str.slice(<span class="number">0</span>, end+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'abcdy'</span>;</span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/abcd[abc]/</span>;</span><br><span class="line"><span class="keyword">while</span>(reg.test(str)) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -599,10 +593,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -612,6 +602,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
               </li>
              
               <li class="article-tag-list-item">

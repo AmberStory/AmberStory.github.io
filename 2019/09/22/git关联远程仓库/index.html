@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>git关联远程仓库 | AmberStory</title>
+  <title>git关联远程仓库、上传本地文件 | AmberStory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="git remote add &amp;lt;远程仓库名&amp;gt; &amp;lt;远程仓库地址&amp;gt;比如：git remote add origin https://github.com/AmberStory/AmberStory.github.io.git&amp;lt;远程仓库名&amp;gt;可以任意起，不过一般默认远程仓库名是origin 一个项目可以有多个远程仓库，只需要通过git remote add [short">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git关联远程仓库">
+<meta property="og:title" content="git关联远程仓库、上传本地文件">
 <meta property="og:url" content="http://yoursite.com/2019/09/22/git关联远程仓库/index.html">
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="git remote add &amp;lt;远程仓库名&amp;gt; &amp;lt;远程仓库地址&amp;gt;比如：git remote add origin https://github.com/AmberStory/AmberStory.github.io.git&amp;lt;远程仓库名&amp;gt;可以任意起，不过一般默认远程仓库名是origin 一个项目可以有多个远程仓库，只需要通过git remote add [short">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-15T14:29:08.000Z">
+<meta property="og:updated_time" content="2020-01-31T07:55:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git关联远程仓库">
+<meta name="twitter:title" content="git关联远程仓库、上传本地文件">
 <meta name="twitter:description" content="git remote add &amp;lt;远程仓库名&amp;gt; &amp;lt;远程仓库地址&amp;gt;比如：git remote add origin https://github.com/AmberStory/AmberStory.github.io.git&amp;lt;远程仓库名&amp;gt;可以任意起，不过一般默认远程仓库名是origin 一个项目可以有多个远程仓库，只需要通过git remote add [short">
   
     <link rel="alternative" href="/atom.xml" title="AmberStory" type="application/atom+xml">
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git关联远程仓库
+      git关联远程仓库、上传本地文件
     </h1>
   
 
@@ -178,6 +178,7 @@
 <p>一个项目可以有多个远程仓库，只需要通过<code>git remote add [shortname] [url]</code>命令添加即可。</p>
 <p>拉取远程仓库代码：<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;<br>例如：git pull dp-mp release_1.0.0</p>
 <p>向远程提交代码：<br>git push &lt;远程仓库名&gt; &lt;需要push的分支名&gt;</p>
+<h2 id="上传本地文件"><a href="#上传本地文件" class="headerlink" title="上传本地文件"></a>上传本地文件</h2><p>第一步：在需要上传至git的文件夹中执行git init，使这个项目变成git管理的仓库；<br>第二步：通过<code>git add .</code>和<code>git commit -m &#39;提交&#39;</code>命令，把文件提交至git临时仓库；<br>第三步：通过<code>git remote add origin &lt;远程仓库地址&gt;</code>将远程仓库与本地关联（如果管理错了，可以通过git remote rm origin删除）；<br>第四步：执行<code>git push --set-upstream origin master</code>将本地文件上次至git仓库。</p>
 
       
 
@@ -309,7 +310,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传本地文件"><span class="toc-number">1.</span> <span class="toc-text">上传本地文件</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -450,10 +451,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -463,6 +460,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
               </li>
              
               <li class="article-tag-list-item">

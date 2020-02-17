@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="选择好的变量名 变量命名时最重要的考虑事项是，该名字要能够完全准确的描述出该变量所代表的事物。尽量不要使用让人看不懂的缩写。因为他是对事物的完整描述，所以不会和其他事物混淆。  完整的描述变量名表示“当前日期”的变量名可以命名为：currentDate，表示“中国奥林匹克代表团队成员数量”的变量，可以命名为：numberOfPeopleOnTheChinaOlympicTeam。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-22T09:53:58.000Z">
+<meta property="og:updated_time" content="2020-01-21T03:03:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="code complete">
 <meta name="twitter:description" content="选择好的变量名 变量命名时最重要的考虑事项是，该名字要能够完全准确的描述出该变量所代表的事物。尽量不要使用让人看不懂的缩写。因为他是对事物的完整描述，所以不会和其他事物混淆。  完整的描述变量名表示“当前日期”的变量名可以命名为：currentDate，表示“中国奥林匹克代表团队成员数量”的变量，可以命名为：numberOfPeopleOnTheChinaOlympicTeam。">
@@ -200,6 +200,16 @@
 <li>用wiki记录设计讨论决策；</li>
 <li>写总结邮件；</li>
 </ol>
+<h2 id="子程序"><a href="#子程序" class="headerlink" title="子程序"></a>子程序</h2><h3 id="创建子程序的正当理由"><a href="#创建子程序的正当理由" class="headerlink" title="创建子程序的正当理由"></a>创建子程序的正当理由</h3><ul>
+<li>避免代码重复，节省存储空间，管理起来也更加方便；</li>
+<li>降低复杂度，引入易懂的抽象，比如一段代码放在一个恰当命名的子程序内，比直接读取每行代码理解起来更加方便快捷。</li>
+<li>如果发现子程序中包含一些副作用，比如一个子程序的作用是计算报表总额并打开一个输出文件，最好换一种编程方式使之不产生副作用。</li>
+</ul>
+<h3 id="好的子程序名字"><a href="#好的子程序名字" class="headerlink" title="好的子程序名字"></a>好的子程序名字</h3><ul>
+<li>描述子程序所做的所有事情；</li>
+<li>避免使用无意义的、含义模糊不清的动词，比如可以将handleOutput改为formatAndPrintOutput；</li>
+<li>给函数命名时要对其返回值有所描述；</li>
+</ul>
 
       
 
@@ -342,7 +352,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择好的变量名"><span class="toc-number">1.</span> <span class="toc-text">选择好的变量名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件构建中的设计"><span class="toc-number">2.</span> <span class="toc-text">软件构建中的设计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择好的变量名"><span class="toc-number">1.</span> <span class="toc-text">选择好的变量名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件构建中的设计"><span class="toc-number">2.</span> <span class="toc-text">软件构建中的设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子程序"><span class="toc-number">3.</span> <span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建子程序的正当理由"><span class="toc-number">3.1.</span> <span class="toc-text">创建子程序的正当理由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好的子程序名字"><span class="toc-number">3.2.</span> <span class="toc-text">好的子程序名字</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -483,10 +493,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -496,6 +502,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -155,6 +155,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-深拷贝和浅拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/19/深拷贝和浅拷贝/">深拷贝和浅拷贝</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/19/深拷贝和浅拷贝/" class="archive-article-date">
+  	<time datetime="2019-10-19T03:42:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript的变量包含基本类型的值和引用类型的值。其中基本类型值是存储在栈中的一些简单的数据段；引用类型值是引用类型的实例，引用类型是一种数据结构。<br>JavaScript基本类型包括：String、Number、Boolean、Null、Undefined、Symbol。<br>JavaScript引用类型包括：Object、Array、Date、Function、RegExp等。</p>
+<h4 id="引用类型复制"><a href="#引用类型复制" class="headerlink" title="引用类型复制"></a>引用类型复制</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line">obj2 = obj1;</span><br><span class="line">obj2.a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1.a);  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2.a);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/10/19/深拷贝和浅拷贝/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/19/深拷贝和浅拷贝/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-for-in和for-of" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -455,7 +532,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/22/git关联远程仓库/">git关联远程仓库</a>
+      <a class="article-title" href="/2019/09/22/git关联远程仓库/">git关联远程仓库、上传本地文件</a>
     </h1>
   
 
@@ -472,6 +549,7 @@
 <p>一个项目可以有多个远程仓库，只需要通过<code>git remote add [shortname] [url]</code>命令添加即可。</p>
 <p>拉取远程仓库代码：<br>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;<br>例如：git pull dp-mp release_1.0.0</p>
 <p>向远程提交代码：<br>git push &lt;远程仓库名&gt; &lt;需要push的分支名&gt;</p>
+<h2 id="上传本地文件"><a href="#上传本地文件" class="headerlink" title="上传本地文件"></a>上传本地文件</h2><p>第一步：在需要上传至git的文件夹中执行git init，使这个项目变成git管理的仓库；<br>第二步：通过<code>git add .</code>和<code>git commit -m &#39;提交&#39;</code>命令，把文件提交至git临时仓库；<br>第三步：通过<code>git remote add origin &lt;远程仓库地址&gt;</code>将远程仓库与本地关联（如果管理错了，可以通过git remote rm origin删除）；<br>第四步：执行<code>git push --set-upstream origin master</code>将本地文件上次至git仓库。</p>
 
       
 
@@ -824,84 +902,6 @@
 
 
   
-    <article id="post-Linux命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/30/Linux命令/">Linux命令</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/30/Linux命令/" class="archive-article-date">
-  	<time datetime="2019-07-30T10:58:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p><code>-v</code>参数可以显示一次http通信的整个过程，包括端口连接和http request头信息。<br><code>$ curl -v http://example</code></p>
-<h3 id="b"><a href="#b" class="headerlink" title="-b"></a>-b</h3><p><code>-b</code>参数可以用来指定cookie，也可以用过–cookie来指定cookie的值。<br><code>$ curl -b &quot;token=PS-1YW8oJ65LIc&quot; http://example.com</code></p>
-        
-          <a class="article-more-a" href="/2019/07/30/Linux命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/30/Linux命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1028,10 +1028,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -1041,6 +1037,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
               </li>
              
               <li class="article-tag-list-item">
