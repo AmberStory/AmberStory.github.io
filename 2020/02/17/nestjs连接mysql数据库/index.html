@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="AmberStory">
 <meta property="og:description" content="最近在学习使用nestjs搭配typeorm连接mysql数据库，学习期间遇到过的问题记录下来和大家分享，希望能够对一些同学有所帮助。（基于mac笔记本）。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-17T07:52:56.000Z">
+<meta property="og:updated_time" content="2020-03-01T06:26:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nestjs连接mysql数据库遇到的问题">
 <meta name="twitter:description" content="最近在学习使用nestjs搭配typeorm连接mysql数据库，学习期间遇到过的问题记录下来和大家分享，希望能够对一些同学有所帮助。（基于mac笔记本）。">
@@ -187,6 +187,12 @@
 <h1 id="mysql查询命令（命令行后面的分号不能省）"><a href="#mysql查询命令（命令行后面的分号不能省）" class="headerlink" title="mysql查询命令（命令行后面的分号不能省）"></a>mysql查询命令（命令行后面的分号不能省）</h1><ul>
 <li><p>select user from mysql.user;  // 查询数据库用户名</p>
 </li>
+<li><p>use &lt;database名&gt;; // 查看所有库</p>
+</li>
+<li><p>show tables;  // 查看所有表</p>
+</li>
+<li><p>desc &lt;表名&gt;;  // 查看表结构</p>
+</li>
 <li><p>show databases;   // 查看所有数据库库名</p>
 </li>
 <li><p>update user set user =’Amber’ where user =’root’;   // 修改数据库用户名</p>
@@ -298,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/02/27/单行文本、多行文本显示省略号/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          单行文本、多行文本显示省略号
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/22/vue父子组件通信/" id="article-nav-older" class="article-nav-link-wrap">
@@ -457,11 +472,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Promise JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ES6 JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,11 +504,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">storage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +512,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">storage</a>
+                <a href="javascript:void(0)" class="js-tag color5">npm JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">npm JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">nestjs typeorm mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,11 +572,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
+                <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">RegExp</a>
+                <a href="javascript:void(0)" class="js-tag color2">node server http</a>
               </li>
              
               <li class="article-tag-list-item">
